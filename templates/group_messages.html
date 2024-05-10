@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ group.name }} Xabarlar</title>
+</head>
+<body>
+    {% if request.user in group.members.all %}      
+    <h1>Guruh: {{ group.name }}</h1>
+    {% if request.user != group.admin %}
+    <div><a href="{% url 'leave_group' group.code %}">Guruhni tark etish</a></div>
+    {% endif %}
+    <ul>
+        {% for message in messages %}
+        <li>{{ message.sender.username }}: {{ message.content }}</li>
+        {% endfor %}
+    </ul>
+    <form action="{% url 'send_message' group.code %}" method="post">
+        {% csrf_token %}
+        <label for="content">Xabar:</label>
+        <textarea id="content" name="content"></textarea>
+        <button type="submit">Jo'natish</button>
+    </form>
+    {% else %}
+    <h2>Qo'shilish uchun so'rov yuborish</h2>
+    <a href="{% url 'send_join_request' group.code %}">So'rovni yuborish</a>
+    {% endif %}
+</body>
+</html>

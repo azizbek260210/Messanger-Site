@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil</title>
+</head>
+<body>
+    <h1>Foydalanuvchi Profili</h1>
+    <form action="{% url 'search' %}" method="post">
+        {% csrf_token %}
+    <input type="text" name="q" placeholder="Gurih nomi">
+    <button type="submit">Qidirish</button>
+    </form>
+    <h2><a href="{% url 'index' %}">{{ user.username }}</a></h2>
+    {% if requests %}
+      
+    <h3>So'rovlar</h3>
+    <ul>
+        {% for request in requests %}
+        <li>
+            Guruh nomi: {{request.group.name}} Foydalanuvchi: {{request.user.username}}
+            <a href="{% url 'accept_join_request' request.code %}">Qo'shish</a>
+            <a href="{% url 'delete_join_request' request.code %}">O'chirish</a>
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <h3>Mening guruhlarim</h3>
+    <ul>
+        {% for group in my_groups %}
+        <li>
+            <a href="{% url 'group_messages' group.code %}">{{group.name}}{% if request.user == group.admin %}(Meniki){% endif %} </a>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'create_group' %}">Guruh Yaratish</a>
+
+</body>
+</html>

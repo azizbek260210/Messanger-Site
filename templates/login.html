@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akkauntga kirish</title>
+</head>
+<body style="display: flex; justify-content: center;">
+    <div>
+    <br><br><br><br><br><br>
+    <h2 style="margin-left: 90px;"><b>Kirish</b></h2><br>
+    <form method="post"><hr>
+        {% csrf_token %}
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><hr>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><hr>
+        <button type="submit" style="margin-left: 100px; color: rgb(2, 2, 26);"><b>Kirish</b></button>
+    </form><br>
+    <a href="{% url 'register' %}" style="color: black; margin-left: 140px;"><strong>Ro'yxatdan o'tish</strong></a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,12 @@
+16.05.2024
+1) Messanger dasturi. (FAQAT GURUH KO`RINISHIDA). +
+2) Kimdir guruh ochsin. Adminlik statusi bo`lsin. +
+3) Foydalanuvchilar guruh nomi bilan qidirib unga qo`shilishga so`rovlar yuborsin. +
+    Admin qabul qilsa qo`shilsin aks xolda qo`shilmasin. (YUQORIDAGILAR UCHUN MODEL YOZISH MAJBURIY). 
+4) Yuqoridagi dastur uchun API FULL YOZING (IXTIYORIY) 
+5) AUTHENTICATION uchun Tokken authdan foydalaning. (IXTIYORIY) 
+6) APIga docs yozing (IXTIYORIY)
+
+18.05.2024
+1) Message loyihaga signal yozish (FULL), 
+2) API yozish (FULL majburiy emas)
